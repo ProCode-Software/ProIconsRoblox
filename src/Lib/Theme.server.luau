@@ -1,25 +1,22 @@
-local Framework = require(script.Parent.Parent.Packages.Framework)
+local Forge = require(script.Parent.Parent.Packages.Forge)
 local ThemeColors = require(script.Parent.ThemeColors)
 
 function syncColors()
     local theme: StudioTheme = settings().Studio.Theme
     local themeName = theme:GetFullName()
-    Framework.SetStore(
+    Forge.SetStore(
         'BackgroundColor',
         theme:GetColor(Enum.StudioStyleGuideColor.MainBackground)
     )
-    Framework.SetStore(
-        'TextColor',
-        theme:GetColor(Enum.StudioStyleGuideColor.MainText)
-    )
-    Framework.SetStore(
+    Forge.SetStore('TextColor', theme:GetColor(Enum.StudioStyleGuideColor.MainText))
+    Forge.SetStore(
         'ButtonColor',
         theme:GetColor(Enum.StudioStyleGuideColor.MainButton)
     )
-    Framework.SetStore('Theme', themeName)
+    Forge.SetStore('Theme', themeName)
 
     for key: string in pairs(ThemeColors.Light) do
-        Framework.SetStore(key, ThemeColors[themeName][key])
+        Forge.SetStore(key, ThemeColors[themeName][key])
     end
 end
 

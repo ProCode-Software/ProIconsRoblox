@@ -1,13 +1,13 @@
-local Framework = require(script.Parent.Parent.Packages.Framework)
+local Forge = require(script.Parent.Parent.Packages.Forge)
 
 function Matches(iconName: string, query: string): boolean
     local rawName = iconName
     iconName = iconName:lower()
     query = query:lower()
 
-    local iconData = Framework.GetStore('IconData').Value
-    local categories = Framework.GetStore('Category').Value
-    -- Framework.GetStore('IconData').Value[props.Name].category == cat
+    local iconData = Forge.GetStore('IconData').Value
+    local categories = Forge.GetStore('Category').Value
+    -- Forge.GetStore('IconData').Value[props.Name].category == cat
 
     local desc = iconData[rawName].description:lower()
     local tries = {

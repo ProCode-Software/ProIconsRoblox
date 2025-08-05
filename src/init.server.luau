@@ -1,4 +1,4 @@
-local Framework = require(script.Packages.Framework)
+local Forge = require(script.Packages.Forge)
 
 local toolbar = plugin:CreateToolbar('ProIcons')
 local button = toolbar:CreateButton('ProIcons', 'Launch ProIcons icon picker', '')
@@ -30,4 +30,4 @@ button.Click:Connect(function()
 end)
 
 -- UI --
-Framework.CreateElement(App, nil, nil, widget)
+Forge.CreateElement(App, nil, nil, widget)

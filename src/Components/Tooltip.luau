@@ -1,16 +1,16 @@
-local Framework = require(script.Parent.Parent.Packages.Framework)
-local Create = Framework.Create
+local Forge = require(script.Parent.Parent.Packages.Forge)
+local Create = Forge.Create
 
 function Tooltip(props: { Label: string })
-    local tooltip: TextLabel = Framework.CreateElement('TextLabel', {
+    local tooltip: TextLabel = Forge.CreateElement('TextLabel', {
         Text = props.Label,
         Visible = false,
         Name = 'Tooltip',
         ZIndex = 5,
-        BackgroundColor3 = Framework.GetStore('Shadow'),
+        BackgroundColor3 = Forge.GetStore('Shadow'),
         Size = 0,
         AutomaticSize = 'XY',
-        TextColor3 = Framework.GetStore('BackgroundColor'),
+        TextColor3 = Forge.GetStore('BackgroundColor'),
         Font = Enum.Font.BuilderSans,
         AnchorPoint = { 0.5, 0 },
         Position = { 0.5, 0, 1, 10 },
@@ -25,7 +25,7 @@ function Tooltip(props: { Label: string })
         },
         Create 'UIStroke' {
             ApplyStrokeMode = 'Border',
-            Color = Framework.GetStore('Shadow'),
+            Color = Forge.GetStore('Shadow'),
             Thickness = 2,
             Transparency = 0.9,
         },

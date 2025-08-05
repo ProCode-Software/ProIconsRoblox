@@ -1,15 +1,15 @@
-local Framework = require(script.Parent.Packages.Framework)
-local Create = Framework.Create
+local Forge = require(script.Parent.Packages.Forge)
+local Create = Forge.Create
 local CategorySelection = require(script.Parent.Components.CategorySelection)
 local Header = require(script.Parent.Components.Header)
 local IconsGrid = require(script.Parent.Components.IconsGrid)
 
 -- The icon picker interface
 function App()
-    return Framework.CreateElement('Frame', {
+    return Forge.CreateElement('Frame', {
         Name = 'App',
         Size = UDim2.fromScale(1, 1),
-        BackgroundColor3 = Framework.GetStore('BackgroundColor'),
+        BackgroundColor3 = Forge.GetStore('BackgroundColor'),
         BackgroundTransparency = 0,
     }, {
         Create(Header) {},

@@ -1,9 +1,6 @@
 {
     "name": "ProIcons",
     "tree": {
-        "Packages._Index.Framework": {
-            "$path": "../Roblox Framework/src/Framework"
-        },
         "$path": "src"
     }
 }

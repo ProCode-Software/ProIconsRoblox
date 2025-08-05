@@ -1,5 +1,5 @@
 local HttpService = game:GetService('HttpService')
-local Framework = require(script.Parent.Parent.Packages.Framework)
+local Forge = require(script.Parent.Parent.Packages.Forge)
 
 local PROICONS_URL =
     'https://raw.githubusercontent.com/ProCode-Software/proicons/main/icons/roblox.json'
@@ -26,6 +26,6 @@ for category in pairs(categoriesSet) do
 end
 table.sort(categories)
 
-Framework.SetStore('IconData', iconData)
-Framework.SetStore('Categories', categories)
-Framework.SetStore('Icons', icons)
+Forge.SetStore('IconData', iconData)
+Forge.SetStore('Categories', categories)
+Forge.SetStore('Icons', icons)

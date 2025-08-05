@@ -1,43 +1,43 @@
-local Framework = require(script.Parent.Parent.Packages.Framework)
-local Mode = Framework.Mode
-local Create = Framework.Create
+local Forge = require(script.Parent.Parent.Packages.Forge)
+local Mode = Forge.Mode
+local Create = Forge.Create
 
 function CategoryChip(props)
     local name = props.Name
-    local isIncluded = Framework.Derived(
-        Framework.GetStore('Category'),
+    local isIncluded = Forge.Derived(
+        Forge.GetStore('Category'),
         function(c: { string })
             return table.find(c or {}, name) ~= nil
         end
     )
-    return Framework.CreateElement('TextButton', {
-        BackgroundColor3 = Framework.GetStore('ButtonBackground'),
-        TextColor3 = Framework.GetStore('TextColor2'),
+    return Forge.CreateElement('TextButton', {
+        BackgroundColor3 = Forge.GetStore('ButtonBackground'),
+        TextColor3 = Forge.GetStore('TextColor2'),
         Text = name,
         AutomaticSize = 'XY',
         Size = 0,
         BackgroundTransparency = 0,
         AutoButtonColor = false,
         Activated = function()
-            local currCats = Framework.GetStore('Category').Value or {}
+            local currCats = Forge.GetStore('Category').Value or {}
             local inArray = table.find(currCats, name)
             if inArray then
                 table.remove(currCats, inArray)
             else
                 table.insert(currCats, name)
             end
-            Framework.SetStore('Category', currCats)
+            Forge.SetStore('Category', currCats)
         end,
         [Mode 'Hover'] = {
-            BackgroundColor3 = Framework.GetStore('HoverBackground'),
+            BackgroundColor3 = Forge.GetStore('HoverBackground'),
         },
         [Mode 'Active'] = {
-            BackgroundColor3 = Framework.GetStore('ButtonActive'),
+            BackgroundColor3 = Forge.GetStore('ButtonActive'),
         },
     }, {
         Create 'UIStroke' {
             ApplyStrokeMode = 'Border',
-            Color = Framework.GetStore('Accent'),
+            Color = Forge.GetStore('Accent'),
             Thickness = 1,
             Enabled = isIncluded,
         },
@@ -54,7 +54,7 @@ function CategoryChip(props)
 end
 
 function CategorySelection()
-    local element = Framework.CreateElement(
+    local element = Forge.CreateElement(
         'ScrollingFrame',
         {
             ScrollingDirection = 'X',
@@ -69,10 +69,10 @@ function CategorySelection()
             Padding = { 0, 5 },
         }
     )
-    while not Framework.GetStore('Icons').Value do
+    while not Forge.GetStore('Icons').Value do
         task.wait(0.3)
     end
-    for _, category in Framework.GetStore('Categories').Value do
+    for _, category in Forge.GetStore('Categories').Value do
         Create(CategoryChip) { Name = category, Parent = element }
     end
     return element

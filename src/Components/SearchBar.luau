@@ -1,13 +1,13 @@
-local Framework = require(script.Parent.Parent.Packages.Framework)
-local Create = Framework.Create
+local Forge = require(script.Parent.Parent.Packages.Forge)
+local Create = Forge.Create
 
 function SearchBar()
-    local isFocused = Framework.CreateState(false)
-    local textBox = Framework.CreateElement('TextBox', {
+    local isFocused = Forge.CreateState(false)
+    local textBox = Forge.CreateElement('TextBox', {
         PlaceholderText = 'Search icons',
         Size = { 1, 0, 1, 0 },
-        TextColor3 = Framework.GetStore('TextColor'),
-        Text = Framework.Bind(Framework.GetStore('Query')),
+        TextColor3 = Forge.GetStore('TextColor'),
+        Text = Forge.Bind(Forge.GetStore('Query')),
         ClearTextOnFocus = false,
     }, { Create 'UIFlexItem' { FlexMode = 'Fill' } })
     textBox.Focused:Connect(function()
@@ -17,15 +17,15 @@ function SearchBar()
         isFocused:Set(false)
     end)
 
-    return Framework.CreateElement('Frame', {
+    return Forge.CreateElement('Frame', {
         Name = 'SearchBar',
         Size = { 1, 0, 0, 32 },
-        BackgroundColor3 = Framework.GetStore('ButtonBackground'),
+        BackgroundColor3 = Forge.GetStore('ButtonBackground'),
         BackgroundTransparency = 0,
     }, {
         Create 'ImageLabel' {
             Image = 'rbxassetid://92021908612273',
-            ImageColor3 = Framework.GetStore('TextColor'),
+            ImageColor3 = Forge.GetStore('TextColor'),
             Size = { 0, 20, 0, 20 },
         },
         textBox,
@@ -42,7 +42,7 @@ function SearchBar()
         },
         Create 'UIStroke' {
             ApplyStrokeMode = 'Border',
-            Color = Framework.GetStore('Accent'),
+            Color = Forge.GetStore('Accent'),
             Thickness = 1.5,
             Enabled = isFocused,
         },
