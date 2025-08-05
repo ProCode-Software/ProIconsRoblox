@@ -1,0 +1,11 @@
+column_width = 85
+indent_width = 4
+indent_type = 'Spaces'
+line_endings = 'Unix'
+syntax = 'Luau'
+quote_style = 'AutoPreferSingle'
+collapse_simple_statement = 'ConditionalOnly'
+call_parentheses = 'Input'
+
+[sort_requires]
+enabled = true

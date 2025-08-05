@@ -1,0 +1,15 @@
+# Project place file
+/ProIcons.rbxmx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Modules
+**/Packages
+
+# Sourcemaps
+sourcemap.json
+
+# Editor files
+.vscode/
