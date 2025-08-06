@@ -1,5 +1,5 @@
 # ProIcons Roblox
-The official Roblox Studio plugin for ProIcons.
+The official Roblox Studio plugin for the [ProIcons icon library](https://github.com/ProCode-Software/proicons).
 
 ![Screenshot](./screenshot.png)
 
